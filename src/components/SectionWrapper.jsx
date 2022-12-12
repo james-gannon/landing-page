@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Global.js";
 import assets from "../assets/assets";
-import Button from "./Button";
+import ButtonDownload from "./ButtonDownload";
 
 const SectionWrapper = ({
   title,
@@ -43,7 +43,11 @@ const SectionWrapper = ({
             {description}
           </p>
           {showBtn && (
-            <Button assetUrl={assets.expo} Link="CashQuest app deployment" />
+            <ButtonDownload
+              assetUrl1={assets.AppStore}
+              assetUrl2={assets.GooglePlay}
+              Link="CashQuest app deployment"
+            />
           )}
         </div>
         <div className={`flex-1 ${styles.flexCenter} p-8 sm:px-0`}>

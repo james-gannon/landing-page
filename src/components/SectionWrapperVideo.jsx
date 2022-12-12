@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../styles/Global.js";
 import assets from "../assets/assets";
-import Button from "./Button";
+import ButtonDownload from "./ButtonDownload";
+import YouTube from "react-youtube";
 
 const SectionWrapperVideo = ({
   title,
@@ -10,7 +11,8 @@ const SectionWrapperVideo = ({
   banner,
   reverse,
 }) => {
-  const [status, setStatus] = React.useState({});
+  // const video = React.useRef(null);
+  // const [status, setStatus] = React.useState({});
   return (
     <div
       className={`min-h-screen ${styles.section} 
@@ -43,17 +45,14 @@ const SectionWrapperVideo = ({
             {description}
           </p>
           {showBtn && (
-            <Button assetUrl={assets.expo} Link="CashQuest app deployment" />
+            <ButtonDownload
+              assetUrl={assets.expo}
+              Link="CashQuest app deployment"
+            />
           )}
         </div>
         <div className={`flex-1 ${styles.flexCenter} p-8 sm:px-0`}>
-          <video
-            src="https://www.loom.com/embed/4176d59d32044d619a07f0d43b1ccbb6"
-            usenativecontrols={true.toString()}
-            resizemode="contain"
-            islooping={true.toString()}
-            onPlaybackStatusUpdate={setStatus}
-          ></video>
+          <YouTube videoId="Zqdc2EisD30" />
         </div>
       </div>
     </div>

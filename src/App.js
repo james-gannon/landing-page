@@ -3,9 +3,11 @@ import {
   Features,
   SectionWrapper,
   SectionWrapperVideo,
+  Footer,
 } from "./components";
 import assets from "./assets/assets";
 import styles from "./styles/Global";
+import StoreBadge from "react-store-badge";
 
 const App = () => {
   return (
@@ -41,6 +43,8 @@ const App = () => {
         banner="banner02"
       />
       <Download />
+      <Footer />
+
       <div className="px-4 py-2 justify-center items-center bg-primary flex-col text-center banner04">
         <p className={`${styles.pText} ${styles.whiteText}`}>
           Brought to you by {""} <span className="bold">Cache Kings Ltd.</span>
