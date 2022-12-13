@@ -2,6 +2,8 @@ import React from "react";
 import styles from "../styles/Global.js";
 import assets from "../assets/assets";
 import ButtonDownload from "./ButtonDownload";
+// import Map from "./Map.js";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const SectionWrapper = ({
   title,
@@ -10,6 +12,7 @@ const SectionWrapper = ({
   mockupImg,
   banner,
   reverse,
+  header,
 }) => {
   return (
     <div
@@ -45,7 +48,7 @@ const SectionWrapper = ({
           {showBtn && (
             <ButtonDownload
               assetUrl1={assets.AppStore}
-              assetUrl2={assets.GooglePlay}
+              assetUrl2={assets.GooglePlayCrop}
               Link="CashQuest app deployment"
             />
           )}

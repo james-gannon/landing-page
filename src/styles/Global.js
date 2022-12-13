@@ -25,8 +25,8 @@ const styles = {
     "bg-black flex items-center py-2 px-4 rounded-md mt-2 w-fit cursor-pointer",
 
   btnDownload: "flex items-center rounded-md mt-2 w-fit cursor-pointer",
-  apple: "h-16 minmd:w-11/12 minmd:h-11/12 object-contain",
-  google: "h-24 minmd:w-11/12 minmd:h-11/12 object-contain",
+  apple: "h-14 minmd:w-11/12 minmd:h-11/12 object-contain",
+  google: "h-20 minmd:w-11/12 minmd:h-11/12 object-contain",
 
   badges: "flex items-center rounded-md mt-2 w-fit cursor-pointer",
 

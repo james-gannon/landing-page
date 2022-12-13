@@ -68,3 +68,70 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+import _ as THREE from "three";
+import React, { useRef } from "react";
+import useFrame from "react-three-fiber";
+import { Canvas } from "react-three-fiber";
+import _ as R3F from "react-three-fiber";
+
+const Map = ({ width, height, mapImageUrl }) => {
+// Create a reference to the container element that will hold the map
+const containerRef = useRef(null);
+
+// Create a Three.js scene and camera
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+75, // field of view
+width / height, // aspect ratio
+0.1, // near clipping plane
+1000 // far clipping plane
+);
+
+// Create a texture from the mapImageUrl and a material using the texture
+const texture = new THREE.TextureLoader().load(mapImageUrl);
+const material = new THREE.MeshBasicMaterial({ map: texture });
+
+// Create a mesh using the material
+const mesh = new THREE.Mesh(
+new THREE.PlaneGeometry(width, height, 1, 1), // geometry
+material // material
+);
+
+// Set the position of the mesh
+mesh.position.set(0, 0, 0);
+
+// Add the mesh to the scene
+scene.add(mesh);
+
+// Set the camera position
+camera.position.z = 1;
+
+// Create a 3D spinning crumpled treasure chest
+const chestGeometry = new THREE.BoxGeometry(1, 1, 1);
+const chestTexture = new THREE.TextureLoader().load("chest-texture.jpg");
+const chestMaterial = new THREE.MeshBasicMaterial({ map: chestTexture });
+const chest = new THREE.Mesh(chestGeometry, chestMaterial);
+
+// Set the initial position of the chest
+chest.position.set(0, 0, 1);
+
+// Add the chest to the scene
+scene.add(chest);
+
+// Animate the map and chest by spinning them
+R3F.useFrame(() => {
+mesh.rotation.x += 0.01;
+mesh.rotation.y += 0.01;
+chest.rotation.x += 0.01;
+chest.rotation.y += 0.01;
+});
+
+return (
+<Canvas style={{ width: "100%", height: "100%" }}>
+<canvas ref={containerRef} />
+</Canvas>
+);
+};
+
+export default Map;
